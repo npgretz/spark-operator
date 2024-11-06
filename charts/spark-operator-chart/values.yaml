@@ -163,6 +163,13 @@ controller:
     #   cpu: 100m
     #   memory: 300Mi
 
+  # -- Enable the controller to be run with readOnlyRootFilesystem: true
+  readOnlyRootFilesystem:
+    # Enabling readOnlyRootFilesystem will override Values.controller.securityContext.readOnlyRootFilesystem.
+    enable: true
+    # readOnlyRootFilesystem requires a /tmp directory for the controll container to write in. Determine the volumeMount type.
+    volumeMountType: emptyDir    
+
   # -- Security context for controller containers.
   securityContext:
     readOnlyRootFilesystem: true
